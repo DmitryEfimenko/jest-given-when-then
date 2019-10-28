@@ -1,0 +1,35 @@
+{
+  "name": "jest-given-when-then",
+  "version": "1.0.1",
+  "description": "Like rspec-given, but for Jest (port of jasmine-given)",
+  "main": "dist/jest-given-when-then.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "npm run build -- --watch",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryEfimenko/jest-given-when-then.git"
+  },
+  "keywords": [
+    "jest",
+    "bdd",
+    "jasmine-given",
+    "given-when-then"
+  ],
+  "author": "Dmitry A. Efimenko",
+  "typings": "typings/typings.d.ts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DmitryEfimenko/jest-given-when-then/issues"
+  },
+  "homepage": "https://github.com/DmitryEfimenko/jest-given-when-then#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  }
+}
