@@ -8,17 +8,42 @@ To use this helper with Jest under Node.js, simply add it to your package.json w
 $ npm install jest-given-when-then --save-dev
 ```
 
+### Configuring at the file level
 And then from your spec (or in a spec helper), `require('jest-given-when-then')`. Be
 sure that it's loaded after Jest itself is added to the `global` object.
 
+### One time global configuration
 You could also do this in the `jest.config.js` file like so:
 ```js
 module.exports = {
-  roots: ['<rootDir>'],
   setupFilesAfterEnv: [
-    "<rootDir>/node_modules/jest-given-when-then/dist/jest-given-when-then.js"
+    "./node_modules/jest-given-when-then/dist/jest-given-when-then.js"
   ]
 }
+```
+
+### One time global configuration in [Nx workspace](https://github.com/nrwl/nx)
+Nx workspace provides tools for running tests via Jest. The configuration for this is found in `angular-json` file. You'll see something like this:
+```json
+"my-awesome-lib": {
+  ...
+  "architect": {
+    ...
+    "test": {
+      "builder": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/my-awesome-lib/jest.config.js",
+        "tsConfig": "libs/my-awesome-lib/tsconfig.spec.json",
+        "setupFile": "libs/my-awesome-lib/src/test-setup.ts"
+      }
+    }
+  }
+}
+```
+The `setupFile` is what you're looking for. Modify this file to include `jest-given-when-then`:
+```ts
+import 'jest-given-when-then';
+import 'jest-preset-angular';
 ```
 
 ## Description
